@@ -1,0 +1,244 @@
+
+/* // Extra small devices (portrait phones, less than 576px) */
+@media (max-width: 575.98px) {}
+
+/* // Small devices (landscape phones, less than 768px) */
+@media (max-width: 767.98px) {}
+
+/* // Medium devices (tablets, less than 992px) */
+@media (max-width: 991.98px) {}
+
+/* // Large devices (desktops, less than 1200px) */
+@media (max-width: 1199.98px) {}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #394f62;
+}
+::-webkit-scrollbar-thumb {
+  background: #6d8da6;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #8ab5d6;
+}
+
+#centerDiv{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -50px;
+    margin-left: -50px;
+    width: 200px;
+    height: 200px;
+    font-style: italic;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif
+}
+
+/* Form for the brand */
+  
+  body {
+    font-family: "Poppins", sans-serif;
+    height: 100vh;
+    overflow-y: scroll;
+    overflow-x: hidden;
+  }
+  
+  /* STRUCTURE */
+  
+  #addBrandButton{
+    float: right;
+    margin-top: 1%;
+    margin-right: 0.5%;
+  }
+
+  #displayCards{
+    margin-top: 1.5%;
+    margin-right: 1%;
+  }
+
+  #error{
+    border: none;
+    text-align: left;
+    padding-left: 8%;
+    size: 12px;
+  }
+
+  #field{
+    position: relative;
+    top: 50%;
+    width: 85%;
+    border: none;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    -webkit-box-shadow: 0 10px 30px 0 rgba(135, 163, 177, 0.4);
+    box-shadow: 0 10px 30px 0 rgba(135, 163, 177, 0.4);
+    -webkit-border-radius: 5px 5px 5px 5px;
+    border-radius: 5px 5px 5px 5px;
+    margin: 10px 5px 0px 0px;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -ms-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+  }
+  .wrapper {
+    display: flex;
+    align-items: center;
+    flex-direction: column; 
+    justify-content: center;
+    width: 100%;
+    min-height: 100%;
+    padding: 20px;
+  }
+  
+  #newBrandForm {
+    -webkit-border-radius: 10px 10px 10px 10px;
+    border-radius: 10px 10px 10px 10px;
+    background: #fff;
+    padding: 30px;
+    width: 100%;
+    max-width: 450px;
+    position: relative;
+    padding: 0px;
+    -webkit-box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
+    box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
+    text-align: center;
+  }
+  
+  #formFooter {
+    background-color: white;
+    border-top: 1px solid white;
+    padding: 25px;
+    text-align: center;
+    -webkit-border-radius: 0 0 10px 10px;
+    border-radius: 0 0 10px 10px;
+  }
+
+  /* FORM TYPOGRAPHY*/
+  
+  #submitButton{
+    position: relative;
+    top: 50%;
+    left: 15%;
+    width: 70%;
+    height: 40px;
+    background-color: #0dcaf0;
+    border: none;
+    color: white;
+    padding: 15px 2px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    text-transform: uppercase;
+    font-size: 16px;
+    -webkit-box-shadow: 0 10px 30px 0 rgba(135, 163, 177, 0.4);
+    box-shadow: 0 10px 30px 0 rgba(135, 163, 177, 0.4);
+    -webkit-border-radius: 5px 5px 5px 5px;
+    border-radius: 5px 5px 5px 5px;
+    margin: 10px 5px 0px 0px;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -ms-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+  }
+
+  #cancelButton{
+    position: relative;
+    top: 50%;
+    left: 15%;
+    width: 70%;
+    height: 40px;
+    background-color: black;
+    border: none;
+    color: white;
+    padding: 15px 2px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    text-transform: uppercase;
+    font-size: 16px;
+    -webkit-box-shadow: 0 10px 30px 0 rgba(135, 163, 177, 0.4);
+    box-shadow: 0 10px 30px 0 rgba(135, 163, 177, 0.4);
+    -webkit-border-radius: 5px 5px 5px 5px;
+    border-radius: 5px 5px 5px 5px;
+    margin: 10px 5px 0px 0px;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -ms-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  input[type=button]:hover, input[type=submit]:hover, input[type=reset]:hover  {
+    background-color: #39ace7;
+  }
+  
+  input[type=button]:active, input[type=submit]:active, input[type=reset]:active  {
+    -moz-transform: scale(0.95);
+    -webkit-transform: scale(0.95);
+    -o-transform: scale(0.95);
+    -ms-transform: scale(0.95);
+    transform: scale(0.95);
+  }
+  
+  .underlineHover:hover {
+    color: #0d0d0d;
+  }
+  
+  .underlineHover:hover:after{
+    width: 100%;
+  }
+  
+  *:focus {
+      outline: none;
+  } 
+  
+  #icon {
+    
+    width:180px;
+    height: 180px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 20px;
+    object-fit: cover;
+  }
+
+  #mainCard{
+    margin-top: 10%; 
+    max-width: 100%; 
+    height: auto;   
+  }
+
+  #brandCardHea{
+    font-size: 20px;
+    font-weight: 900;
+    
+  }
+
+  #brandCardDes{
+    font-size: 14px;
+    font-weight: 300;
+    max-width: 100%; 
+    height: auto;   
+  }
+
+  #brandCardPic{
+    padding: 1%;
+    border-radius: 8px;
+    max-width: 100%; 
+    height: auto;   
+  }
+
+  #brandHeading{
+    text-align: center; 
+    font-family: serif;
+    margin-top: 20px;
+    font-size: 35px;
+    font-weight: 900;
+  }

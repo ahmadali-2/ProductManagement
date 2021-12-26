@@ -1,11 +1,12 @@
-<x-app-layout>
+@extends('admin.panel.admin_panel')
+@section('admin')
 <div class="row" style="float: right; width: 100.01%;">
     <div class="col" style="float: right;">
         <a href="{{route('showCategoryForm')}}" class="btn btn-info" id="addBrandButton" >Add Category</a>
         <p class="btn btn-danger" id="addBrandButton">Total Categories : {{count($categories)}}</p>
         <p id="brandHeading">Category Section</p>
     </div>
-</div>    
+</div>
     @if(session('message'))
     <div class="alert alert-warning alert-dismissible fade show" role="alert">
         <strong>Great!</strong> {{session('message')}}
@@ -49,4 +50,4 @@
         </div>
     </div>
     </div>
-</x-app-layout>
+@endsection

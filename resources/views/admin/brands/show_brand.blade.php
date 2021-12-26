@@ -1,13 +1,14 @@
-<x-app-layout>
+@extends('admin.panel.admin_panel')
+@section('admin')
 <div class="row" style="float: right; width: 100.01%;">
     <div class="col" style="float: right;">
         <a href="{{route('showBrandForm')}}" class="btn btn-info" id="addBrandButton" >Add Brand</a>
         <p class="btn btn-danger" id="addBrandButton">Total Brands : {{count($brands)}}</p>
         <p id="brandHeading">Brand Section</p>
     </div>
-</div>    
+</div>
     @if(session('message'))
-    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
         <strong>Great!</strong> {{session('message')}}
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
         <span aria-hidden="true">&times;</span>
@@ -49,4 +50,4 @@
         </div>
     </div>
     </div>
-</x-app-layout>
+@endsection

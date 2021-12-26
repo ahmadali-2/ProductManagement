@@ -1,4 +1,5 @@
-<x-app-layout>
+@extends('admin.panel.admin_panel')
+@section('admin')
 <body>
     <div class="py-12">
         <div class="row">
@@ -46,4 +47,4 @@
     </div>
     </div>
 </body>
-</x-app-layout>
+@endsection

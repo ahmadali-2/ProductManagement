@@ -3,10 +3,12 @@
 use App\Http\Controllers\BrandController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\HeroImageController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\UniversalController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', [DashboardController::class,"homePage"]);
+Route::get('/', [DashboardController::class,"homePage"])->name("homePage");
 
 Route::get('/dashboard', [DashboardController::class,"display"])
 ->middleware(['auth:sanctum', 'verified'])->name("dashboard");
@@ -55,3 +57,19 @@ Route::post("/dashboard/showAllCategories/update/{id}",[CategoryController::clas
 Route::get("/dashboard/showAllCategories/categoryProducts/{id}",[CategoryController::class,"categoryProducts"]);
 
 Route::get("/dashboard/showAllCategories/delete/{id}",[CategoryController::class,"delete"]);
+
+//Unisersal Routes:
+Route::get("/dashboard/logout",[UniversalController::class,"logout"]);
+
+//HeroImage Routes
+Route::get("/dashboard/showAllHeroImages",[HeroImageController::class,"show"]);
+
+Route::get("/dashboard/showHeroImages/showHeroImageForm",[HeroImageController::class, "showForm"])->name("showHeroImageForm");
+
+Route::post("/dashboard/showHeroImages/addHeroImage",[HeroImageController::class,"add"])->name("addHeroImage");
+
+Route::get("/dashboard/showAllHeroImages/edit/{id}",[HeroImageController::class,"edit"]);
+
+Route::post("/dashboard/showAllHeroImages/update/{id}",[HeroImageController::class,"update"]);
+
+Route::get("/dashboard/showAllHeroImages/delete/{id}",[HeroImageController::class,"delete"]);

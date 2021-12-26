@@ -1,16 +1,17 @@
-<x-app-layout>
+@extends('admin.panel.admin_panel')
+@section('admin')
 <body onload="setfilterParams()">
 <div class="row" style="float: right; width: 100.01%;">
     <div class="col" style="float: right;">
         <a href="{{route('showProductForm')}}" class="btn btn-info" id="addBrandButton" >Add Product</a>
         @if(is_countable($products))
-            <p class="btn btn-danger" id="addBrandButton">Total Products : {{count($products)}}</p>
+            <p class="btn btn-danger" id="addBrandButton">Total Products : Showing {{ $products->firstItem() }} to {{ $products->lastItem() }} of total {{$products->total()}} entries</p>
         @else
             <p class="btn btn-danger" id="addBrandButton">Total Products : 0</p>
         @endif
         <p id="brandHeading">Products Section</p>
     </div>
-</div>    
+</div>
     @if(session('message'))
     <div class="alert alert-warning alert-dismissible fade show" role="alert">
         <strong>Great!</strong> {{session('message')}}
@@ -20,8 +21,8 @@
     </div>
     @endif
     <div class="row" style="border: 1px solid red;">
-    <div class="col-sm-3" style="padding-left: 100px; padding-top: 10px; padding-bottom: 10px; background-color: #0dcaf0;"> 
-    
+    <div class="col-sm-3" style="padding-left: 100px; padding-top: 10px; padding-bottom: 10px; background-color: #0dcaf0;">
+
     <select id="optionCategory" onchange="catOp()">
         <option value="-">All Categories</option>
             @foreach($categories as $category)
@@ -43,13 +44,13 @@
     </div> -->
     </div>
     <div class="col-sm-3" style="padding-left: 100px; padding-top: 10px; padding-bottom: 10px; background-color: #0dcaf0;">
-    
+
     <select id="optionBrand" onchange="braOp()">
         <option value="-">All Brands</option>
             @foreach($brands as $brand)
                 <option value="{{$brand->id}}">{{$brand->brand_name}}</option>
             @endforeach
-    </select>     
+    </select>
 
         <!-- <div class="dropdown">
             <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -69,14 +70,6 @@
     <div class="py-12">
         <div class="row">
         <table class="table table-hover" style="margin-right: 10px; margin-left: 20px;">
-            <colgroup>
-            <col span="1" style="width: 10%;">
-            <col span="1" style="width: 15%;">
-            <col span="1" style="width: 15%;">
-            <col span="1" style="width: 20%;">
-            <col span="1" style="width: 20%;">
-            <col span="1" style="width: 20%;">
-            </colgroup>
             <thead>
                 <tr">
                 <th scope="col">ID</th>
@@ -106,10 +99,10 @@
             </tbody>
             </table>
             @if(is_countable($products))
-                {{$products->links()}}
+                {{$products->links('pagination::bootstrap-4')}}
             @endif
         </div>
     </div>
     </div>
 </body>
-</x-app-layout>
+@endsection

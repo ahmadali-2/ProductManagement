@@ -1,4 +1,5 @@
-<x-app-layout>
+@extends('admin.panel.admin_panel')
+@section('admin')
 <div class="wrapper fadeInDown">
                 <div id="newBrandForm">
                     <div class="fadeIn first">
@@ -62,4 +63,4 @@
                     </div>
             </div>
     </div>
-</x-app-layout>
+@endsection

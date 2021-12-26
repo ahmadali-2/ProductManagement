@@ -8,7 +8,6 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Intervention\Image\ImageManagerStatic as Image;
-use SebastianBergmann\Environment\Console;
 
 class ProductController extends Controller
 {
@@ -28,16 +27,16 @@ class ProductController extends Controller
     public function filterProducts($catId){
         $products = "";
         $categories = DB::table("categories")->latest()->get();
-        $brands = DB::table("brands")->latest()->get(); 
+        $brands = DB::table("brands")->latest()->get();
         try{
-            if($catId[0] === "-" && $catId[2] == "-"){
+            if($catId[0] === "-" && $catId[2] === "-"){
                 $products = DB::table('products')->latest()->paginate(6);
             }else if($catId[0] === "-"){
-                $products = DB::table('products')->where('brand_id',$catId[2])->latest()->paginate(6); 
+                $products = DB::table('products')->where('brand_id',$catId[2])->latest()->paginate(6);
             }else if($catId[2] === "-"){
-                $products = DB::table('products')->where('category_id',$catId[0])->latest()->paginate(6); 
+                $products = DB::table('products')->where('category_id',$catId[0])->latest()->paginate(6);
             }else{
-                $products = DB::table('products')->where(['category_id',$catId[0]],['brand_id',$catId[2]])->latest()->paginate(6);
+                $products = DB::table('products')->where('category_id',$catId[0])->where('brand_id',$catId[2])->latest()->paginate(6);
             }
         }catch(\Illuminate\Database\QueryException $ex){
             return view("admin.products.show_product",compact("products","categories","brands","catId"));
@@ -61,7 +60,7 @@ class ProductController extends Controller
             "category_id.gt" => "Category not selected OR Create one first",
             "brand_id.gt" => "Brand not selected OR Create one first",
         ]);
-        
+
         $data = array();
         $data["user_id"] = Auth::id();
         $data["category_id"] = $request->category_id;
@@ -78,7 +77,7 @@ class ProductController extends Controller
 
     public function edit($id){
         $categories = DB::table("categories")->latest()->get();
-        $brands = DB::table("brands")->latest()->get(); 
+        $brands = DB::table("brands")->latest()->get();
         $product = DB::table("products")->where('id',$id)->first();
         return view("admin.products.edit_product",compact("product","categories","brands"));
     }

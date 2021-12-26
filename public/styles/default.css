@@ -96,6 +96,7 @@
   }
   
   #newBrandForm {
+    align-self: center;
     -webkit-border-radius: 10px 10px 10px 10px;
     border-radius: 10px 10px 10px 10px;
     background: #fff;

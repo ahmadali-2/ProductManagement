@@ -1,16 +1,39 @@
-var index1 = 0;
-var index2 = 0;
+$('#OpenImgUpload').click(function(){ $('#imgupload').trigger('click'); });
 
 function readURL(input) {
     if (input.files && input.files[0]) {
       var reader = new FileReader();
-  
+
       reader.onload = function (e) {
         $('#icon').attr('src', e.target.result).width($('#icon').width()).height($('#icon').height());
       };
-  
+
       reader.readAsDataURL(input.files[0]);
     }
+}
+
+function readHeroURL(input) {
+  if (input.files && input.files[0]) {
+    var reader = new FileReader();
+
+    reader.onload = function (e) {
+      $('#heroImg').attr('src', e.target.result).width($('#heroImg').width()).height($('#heroImg').height());
+    };
+
+    reader.readAsDataURL(input.files[0]);
+  }
+}
+
+function readProfileURL(input) {
+  if (input.files && input.files[0]) {
+    var reader = new FileReader();
+
+    reader.onload = function (e) {
+      $('#profileImage').attr('src', e.target.result).width($('#heroImg').width()).height($('#heroImg').height());
+    };
+
+    reader.readAsDataURL(input.files[0]);
+  }
 }
 
 function productFilter() {
@@ -47,3 +70,4 @@ function resetDrops(){
 function editProductDrops(product){
   console.log(product);
 }
+

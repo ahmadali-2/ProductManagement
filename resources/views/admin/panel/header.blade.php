@@ -21,13 +21,6 @@
               <div class="navbar-right ">
                 <ul class="nav navbar-nav">
                   <!-- Github Link Button -->
-                  <li class="github-link mr-3">
-                    <a class="btn btn-outline-secondary btn-sm" href="https://github.com/tafcoder/sleek-dashboard" target="_blank">
-                      <span class="d-none d-md-inline-block mr-2">Source Code</span>
-                      <i class="mdi mdi-github-circle"></i>
-                    </a>
-
-                  </li>
                   <li class="dropdown notifications-menu">
                     <button class="dropdown-toggle" data-toggle="dropdown">
                       <i class="mdi mdi-bell-outline"></i>
@@ -72,33 +65,32 @@
                   <!-- User Account -->
                   <li class="dropdown user-menu">
                     <button href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
-                      <img src="{{asset('backend/assets/img/user/user.png')}}" class="user-image" alt="User Image" />
-                      <span class="d-none d-lg-inline-block">Abdus Salam</span>
+                      <img src="{{ asset("$user->profile_photo_path") }}" class="user-image" alt="User Image" />
+                      <span class="d-none d-lg-inline-block">{{$user->name}}</span>
                     </button>
                     <ul class="dropdown-menu dropdown-menu-right">
                       <!-- User image -->
                       <li class="dropdown-header">
-                        <img src="{{asset('backend/assets/img/user/user.png')}}" class="img-circle" alt="User Image" />
+                        <img src="{{ asset("$user->profile_photo_path") }}" class="img-circle" alt="User Image" />
                         <div class="d-inline-block">
-                          Abdus Salam <small class="pt-1">abdus@gmail.com</small>
+                        {{$user->name}} <small class="pt-1">{{$user->email}}</small>
                         </div>
                       </li>
 
                       <li>
-                        <a href="profile.html">
+                        <a href="{{route('changeProfileForm')}}">
                           <i class="mdi mdi-account"></i> My Profile
+                        </a>
+                      </li>
+                      <li>
+                        <a href="{{route('changePasswordForm')}}">
+                          <i class="fas fa-key"></i> Change Password
                         </a>
                       </li>
                       <li>
                         <a href="email-inbox.html">
                           <i class="mdi mdi-email"></i> Message
                         </a>
-                      </li>
-                      <li>
-                        <a href="#"> <i class="mdi mdi-diamond-stone"></i> Projects </a>
-                      </li>
-                      <li>
-                        <a href="#"> <i class="mdi mdi-settings"></i> Account Setting </a>
                       </li>
 
                       <li class="dropdown-footer">

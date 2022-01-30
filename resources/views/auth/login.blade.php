@@ -24,7 +24,7 @@
   <!-- SLEEK CSS -->
   <link id="sleek-css" rel="stylesheet" href="{{asset('backend/assets/css/sleek.css')}}" />
 
-  
+
 
   <!-- FAVICON -->
   <link href="{{asset('backend/assets/img/favicon.png')}}" rel="shortcut icon" />
@@ -61,7 +61,14 @@
               </div>
             </div>
             <div class="card-body p-5">
-
+            @if(session('message'))
+              <div class="alert alert-success alert-dismissible fade show" role="alert">
+                  <strong>Great!</strong> {{session('message')}}
+                  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                  </button>
+              </div>
+            @endif
               <h4 class="text-dark mb-5">Sign In</h4>
               <form method="POST" action="{{ route('login') }}">
                   @csrf
@@ -88,7 +95,7 @@
                           @enderror
                           <div class="control-indicator"></div>
                         </label>
-                
+
                       </div>
                       <p><a class="text-blue" href="{{ route('password.request') }}">Forgot Your Password?</a></p>
                     </div>

@@ -38,16 +38,16 @@
 }
 
 /* Form for the brand */
-  
+
   body {
     font-family: "Poppins", sans-serif;
     height: 100vh;
     overflow-y: scroll;
     overflow-x: hidden;
   }
-  
+
   /* STRUCTURE */
-  
+
   #addBrandButton{
     float: right;
     margin-top: 1%;
@@ -88,13 +88,13 @@
   .wrapper {
     display: flex;
     align-items: center;
-    flex-direction: column; 
+    flex-direction: column;
     justify-content: center;
     width: 100%;
     min-height: 100%;
     padding: 20px;
   }
-  
+
   #newBrandForm {
     align-self: center;
     -webkit-border-radius: 10px 10px 10px 10px;
@@ -109,7 +109,7 @@
     box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
     text-align: center;
   }
-  
+
   #formFooter {
     background-color: white;
     border-top: 1px solid white;
@@ -120,7 +120,7 @@
   }
 
   /* FORM TYPOGRAPHY*/
-  
+
   #submitButton{
     position: relative;
     top: 50%;
@@ -174,11 +174,11 @@
     -o-transition: all 0.3s ease-in-out;
     transition: all 0.3s ease-in-out;
   }
-  
+
   input[type=button]:hover, input[type=submit]:hover, input[type=reset]:hover  {
     background-color: #39ace7;
   }
-  
+
   input[type=button]:active, input[type=submit]:active, input[type=reset]:active  {
     -moz-transform: scale(0.95);
     -webkit-transform: scale(0.95);
@@ -186,21 +186,21 @@
     -ms-transform: scale(0.95);
     transform: scale(0.95);
   }
-  
+
   .underlineHover:hover {
     color: #0d0d0d;
   }
-  
+
   .underlineHover:hover:after{
     width: 100%;
   }
-  
+
   *:focus {
       outline: none;
-  } 
-  
+  }
+
   #icon {
-    
+
     width:180px;
     height: 180px;
     display: block;
@@ -211,33 +211,33 @@
   }
 
   #mainCard{
-    margin-top: 10%; 
-    max-width: 100%; 
-    height: auto;   
+    margin-top: 10%;
+    max-width: 100%;
+    height: auto;
   }
 
   #brandCardHea{
     font-size: 20px;
     font-weight: 900;
-    
+
   }
 
   #brandCardDes{
     font-size: 14px;
     font-weight: 300;
-    max-width: 100%; 
-    height: auto;   
+    max-width: 100%;
+    height: auto;
   }
 
   #brandCardPic{
     padding: 1%;
     border-radius: 8px;
-    max-width: 100%; 
-    height: auto;   
+    max-width: 100%;
+    height: auto;
   }
 
   #brandHeading{
-    text-align: center; 
+    text-align: center;
     font-family: serif;
     margin-top: 20px;
     font-size: 35px;

@@ -1,74 +1,117 @@
-<footer id="footer">
+<footer>
+         <div class="container">
+            <div class="row">
+               <div class="col-md-4">
+                   <div class="full">
+                      <div class="logo_footer">
+                        <a href="{{route('home.page')}}"><img width="100" height="100" src="{{asset("$basicInfo->website_logo")}}" alt="Website Logo" /></a>
+                      </div>
+                      <div class="information_f">
+                        <p><strong>ADDRESS: </strong>{{$basicInfo->address}}</p>
+                        <p><strong>TELEPHONE: </strong>{{$basicInfo->telephone}}</p>
+                        <p><strong>EMAIL: </strong>{{$basicInfo->email}}</p>
+                      </div>
+                   </div>
+               </div>
+               <div class="col-md-8">
+                  <div class="row">
+                  <div class="col-md-7">
+                     <div class="row">
+                        <div class="col-md-6">
+                     <div class="widget_menu">
+                        <h3>Menu</h3>
+                        <ul>
+                           <li><a href="#">Home</a></li>
+                           <li><a href="#">About</a></li>
+                           <li><a href="#">Services</a></li>
+                           <li><a href="#">Testimonial</a></li>
+                           <li><a href="#">Blog</a></li>
+                           <li><a href="#">Contact</a></li>
+                        </ul>
+                     </div>
+                  </div>
+                  <div class="col-md-6">
+                     <div class="widget_menu">
+                        <h3>Social Links</h3>
+                        <ul>
+                           <li>
+                                 <a href="https://wa.me/{{$socials->social_whatsapp}}" style="color: green;" target="_blank">
+                                    <i class="fa fa-whatsapp"></i> Whatsapp
+                                 </a>
+                           </li>
+                           <li>
+                                 <a href="{{$socials->social_facebook}}" style="color: #4267B2" target="_blank">
+                                    <i class="fa fa-facebook"></i> Facebook
+                                 </a>
+                           </li>
+                           <li>
+                                 <a href="{{$socials->social_linkedin}}" style="color: #0072b1;" target="_blank">
+                                    <i class="fa fa-linkedin"></i> LinkedIn
+                                 </a>
+                           </li>
+                           <li>
+                                 <a href="{{$socials->social_twitter}}" style="color: #1DA1F2;" target="_blank">
+                                    <i class="fa fa-twitter"></i> Twitter
+                                 </a>
+                           </li>
+                           <li>
+                                 <a href="{{route('contact.page')}}" style="color: #fc2017;" target="_blank">
+                                    <i class="fa fa-envelope-open"></i> Contact form
+                                 </a>
+                           </li>
+                        </ul>
+                     </div>
+                  </div>
+                     </div>
+                  </div>
+                  <div class="col-md-5">
+                     <div class="widget_menu">
+                        <h3>Newsletter</h3>
+                        <div class="information_f">
+                          <p>{{$subscribe->subs_description}}</p>
+                        </div>
+                        <div class="form_sub">
+                           <form id="smForm">
+                              @csrf
+                                 <div class="field">
+                                    <input id="webs1" type="email" placeholder="Enter Your Mail" name="website_subscriber" />
+                                    <input name="submit" type="submit" value="Subscribe" />
+                                 </div>
+                           </form>
+                           <span id="message1" class="error" style="color: green;"></span>
+                           <span id="errorMessage1" class="error" style="color: red;"></span>
+                        <script src="{{asset('frontend/WebArtifacts/js/jquery-3.4.1.min.js')}}"></script>
+                        <script>
+                              jQuery('#smForm').submit(function(e){
+                                 e.preventDefault();
+                                 jQuery.ajax({
+                                    url:"{{url('/home/subscribe')}}",
+                                    data: jQuery('#smForm').serialize(),
+                                    type:'post',
+                                    success: function(result){
+                                       if ($.isEmptyObject(result.error)) {
+                                             $('#webs1').val('');
+                                             $('#message1').delay(2).fadeIn();
+                                             jQuery('#message1').html(result.success);
+                                             $('#message1').delay(3500).fadeOut();
+                                       }else{
+                                             printErrorMsg1(result.error)
+                                       }
+                                    }
+                                 });
+                              });
 
-<div class="footer-top">
-  <div class="container">
-    <div class="row">
-
-      <div class="col-lg-3 col-md-6 footer-contact">
-        <h3>Company</h3>
-        <p>
-          A108 Adam Street <br>
-          New York, NY 535022<br>
-          United States <br><br>
-          <strong>Phone:</strong> +1 5589 55488 55<br>
-          <strong>Email:</strong> info@example.com<br>
-        </p>
-      </div>
-
-      <div class="col-lg-2 col-md-6 footer-links">
-        <h4>Useful Links</h4>
-        <ul>
-          <li><i class="bx bx-chevron-right"></i> <a href="#">Home</a></li>
-          <li><i class="bx bx-chevron-right"></i> <a href="#">About us</a></li>
-          <li><i class="bx bx-chevron-right"></i> <a href="#">Services</a></li>
-          <li><i class="bx bx-chevron-right"></i> <a href="#">Terms of service</a></li>
-          <li><i class="bx bx-chevron-right"></i> <a href="#">Privacy policy</a></li>
-        </ul>
-      </div>
-
-      <div class="col-lg-3 col-md-6 footer-links">
-        <h4>Our Services</h4>
-        <ul>
-          <li><i class="bx bx-chevron-right"></i> <a href="#">Web Design</a></li>
-          <li><i class="bx bx-chevron-right"></i> <a href="#">Web Development</a></li>
-          <li><i class="bx bx-chevron-right"></i> <a href="#">Product Management</a></li>
-          <li><i class="bx bx-chevron-right"></i> <a href="#">Marketing</a></li>
-          <li><i class="bx bx-chevron-right"></i> <a href="#">Graphic Design</a></li>
-        </ul>
-      </div>
-
-      <div class="col-lg-4 col-md-6 footer-newsletter">
-        <h4>Join Our Newsletter</h4>
-        <p>Tamen quem nulla quae legam multos aute sint culpa legam noster magna</p>
-        <form action="" method="post">
-          <input type="email" name="email"><input type="submit" value="Subscribe">
-        </form>
-      </div>
-
-    </div>
-  </div>
-</div>
-
-<div class="container d-md-flex py-4">
-
-  <div class="mr-md-auto text-center text-md-left">
-    <div class="copyright">
-      &copy; Copyright <strong><span>Company</span></strong>. All Rights Reserved
-    </div>
-    <div class="credits">
-      <!-- All the links in the footer should remain intact. -->
-      <!-- You can delete the links only if you purchased the pro version. -->
-      <!-- Licensing information: https://bootstrapmade.com/license/ -->
-      <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/company-free-html-bootstrap-template/ -->
-      Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
-    </div>
-  </div>
-  <div class="social-links text-center text-md-right pt-3 pt-md-0">
-    <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
-    <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
-    <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
-    <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
-    <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
-  </div>
-</div>
-</footer><!-- End Footer -->
+                              function printErrorMsg1(error) {
+                                 $('#errorMessage1').delay(2).fadeIn();
+                                 jQuery('#errorMessage1').html(error);
+                                 $('#errorMessage1').delay(3000).fadeOut();
+                           }
+                        </script>
+                        </div>
+                     </div>
+                  </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </footer>

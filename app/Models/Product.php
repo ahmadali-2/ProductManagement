@@ -15,8 +15,9 @@ class Product extends Model
         'brand_id',
         'product_name',
         'product_description',
+        'product_video',
         'product_logo',
         'product_stock',
         'product_price'
-    ]; 
+    ];
 }

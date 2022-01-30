@@ -9,8 +9,6 @@ class HeroImage extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'hero_name',
-        'hero_description',
-        'hero_logo',
-    ]; 
+        'hero_image',
+    ];
 }

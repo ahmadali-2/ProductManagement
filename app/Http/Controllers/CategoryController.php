@@ -12,6 +12,11 @@ use Intervention\Image\ImageManagerStatic as Image;
 
 class CategoryController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function show(){
         return view("admin.categories.add_category");
     }
@@ -28,7 +33,7 @@ class CategoryController extends Controller
             "category_description" => "required:categories|min:50",
             'category_logo' => 'required|image|mimes:jpg,png,jpeg,gif,svg,webp',
         ]);
-        
+
         $data = array();
         $data["user_id"] = Auth::id();
         $data["category_logo"] = $this->makeImage($request);
@@ -36,7 +41,11 @@ class CategoryController extends Controller
         $data["category_description"] = $request->category_description;
         $data["created_at"] = Carbon::now();
         DB::table("categories")->insert($data);
-        return redirect("/dashboard/showAllCategories")->with("message","Category created successfuly!");
+        $notification = array(
+            'message' => 'Category created successfuly!',
+            'alert-type' => 'success'
+        );
+        return redirect("/dashboard/showAllCategories")->with($notification);
     }
 
     public function makeImage(Request $request){
@@ -44,7 +53,7 @@ class CategoryController extends Controller
         $image =  $request->file("category_logo");
         $imageExtension = strtolower($image->getClientOriginalExtension());
         $imageName = hexdec(uniqid()).".".$imageExtension;
-        Image::make($image)->resize(450, 250)->save("Images/Category/".$imageName);
+        Image::make($image)->save("Images/Category/".$imageName);
         $filePath = "Images/Category/".$imageName;
         return $filePath;
     }
@@ -65,7 +74,7 @@ class CategoryController extends Controller
             "category_name" => "required:categories|max:25",
             "category_description" => "required:categories|min:50",
         ]);
-        
+
         $data = array();
         $data["user_id"] = Auth::id();
         if($request->category_logo){
@@ -77,7 +86,11 @@ class CategoryController extends Controller
         $data["category_description"] = $request->category_description;
         $data["updated_at"] = Carbon::now();
         DB::table("categories")->update($data);
-        return redirect("/dashboard/showAllCategories")->with("message","Category updated successfuly!");
+        $notification = array(
+            'message' => 'Category updated successfuly!',
+            'alert-type' => 'success'
+        );
+        return redirect("/dashboard/showAllCategories")->with($notification);
     }
 
     public function delete($id){
@@ -89,6 +102,10 @@ class CategoryController extends Controller
         }
         unlink($category->category_logo);
         $category->delete();
-        return redirect("/dashboard/showAllCategories")->with("message","Category along with all its products deleted!");
+        $notification = array(
+            'message' => 'Category along with all its products deleted!',
+            'alert-type' => 'success'
+        );
+        return redirect("/dashboard/showAllCategories")->with($notification);
     }
 }

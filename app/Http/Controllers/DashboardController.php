@@ -2,10 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Arrival;
+use App\Models\BasicInfo;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Auth;
-use App\Models\brand;
-use App\Models\HeroImage;
+use App\Models\HeroOverlay;
+use App\Models\Product;
+use App\Models\Social;
+use App\Models\Subscribe;
+use App\Models\Testimonial;
+use App\Models\Why;
 
 class DashboardController extends Controller
 {
@@ -14,8 +19,16 @@ class DashboardController extends Controller
     }
 
     public function homePage(){
-        $brands = Brand::all();
-        $heros = HeroImage::all();
-        return view("layouts.websiteBody.home_content", compact("brands","heros"));
+        //$brands = Brand::all();
+        $products = Product::all()->take(6);
+        $hero = DB::table("hero_images")->get()->first();
+        $overlays = HeroOverlay::all();
+        $whies = Why::all();
+        $arrival = Arrival::all()->first();
+        $subscribe = Subscribe::all()->first();
+        $testimonials = Testimonial::all();
+        $basicInfo = BasicInfo::all()->first();
+        $socials = Social::all()->first();
+        return view("layouts.websitePages.home", compact("hero","overlays","products","whies","arrival","subscribe","testimonials","basicInfo","socials"));
     }
 }

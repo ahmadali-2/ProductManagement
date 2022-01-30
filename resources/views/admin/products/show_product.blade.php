@@ -12,15 +12,7 @@
         <p id="brandHeading">Products Section</p>
     </div>
 </div>
-    @if(session('message'))
-    <div class="alert alert-warning alert-dismissible fade show" role="alert">
-        <strong>Great!</strong> {{session('message')}}
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-        </button>
-    </div>
-    @endif
-    <div class="row" style="border: 1px solid red;">
+    <div class="row">
     <div class="col-sm-3" style="padding-left: 100px; padding-top: 10px; padding-bottom: 10px; background-color: #0dcaf0;">
 
     <select id="optionCategory" onchange="catOp()">
@@ -30,18 +22,6 @@
             @endforeach
     </select>
 
-    <!-- <div class="dropdown">
-            <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Select Category
-            </a>
-
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-            <a class="dropdown-item" href="{{url('/dashboard/showAllProducts/filter/category/'."showAll")}}">Show All</a>
-                @foreach($categories as $category)
-                    <a class="dropdown-item" href="{{url('/dashboard/showAllProducts/filter/category/'."$category->id")}}">{{$category->category_name}}</a>
-                @endforeach
-            </div>
-    </div> -->
     </div>
     <div class="col-sm-3" style="padding-left: 100px; padding-top: 10px; padding-bottom: 10px; background-color: #0dcaf0;">
 
@@ -51,17 +31,6 @@
                 <option value="{{$brand->id}}">{{$brand->brand_name}}</option>
             @endforeach
     </select>
-
-        <!-- <div class="dropdown">
-            <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Select Brand
-            </a>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                @foreach($brands as $brand)
-                    <a class="dropdown-item" href="{{url('/dashboard/showAllProducts/filter/brand/'."$brand->id")}}">{{$brand->brand_name}}</a>
-                @endforeach
-            </div>
-        </div> -->
     </div>
     <div class="col-sm-6" style="padding-left: 100px; padding-top: 10px; padding-bottom: 10px; background-color: #0dcaf0;">
         <div class="btn btn-primary" onclick="productFilter()">Filter</div>

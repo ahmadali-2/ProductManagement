@@ -1,3 +1,10 @@
+@php
+  use App\Models\User;
+  use App\Models\BasicInfo;
+  $user = User::find(Auth::user()->id);
+  $basicInfo = BasicInfo::all()->first();
+@endphp
+
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -12,7 +19,8 @@
   <link href="https://cdn.materialdesignicons.com/3.0.39/css/materialdesignicons.min.css" rel="stylesheet" />
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
   <!-- PLUGINS CSS STYLE -->
-  
+
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" rel="stylesheet" />
   <link href="{{asset('backend/assets/plugins/toaster/toastr.min.css')}}" rel="stylesheet" />
   <link href="{{asset('backend/assets/plugins/nprogress/nprogress.css')}}" rel="stylesheet" />
   <link href="{{asset('backend/assets/plugins/flag-icons/css/flag-icon.min.css')}}" rel="stylesheet"/>
@@ -21,14 +29,14 @@
   <link href="{{asset('backend/assets/plugins/select2/css/select2.min.css')}}" rel="stylesheet" />
   <link href="{{asset('backend/assets/plugins/daterangepicker/daterangepicker.css')}}" rel="stylesheet" />
   <link href="{{asset('styles/default.css')}}" rel="stylesheet">
-  
+
   <!-- SLEEK CSS -->
   <link id="sleek-css" rel="stylesheet" href="{{asset('backend/assets/css/sleek.css')}}" />
 
-  
+
 
   <!-- FAVICON -->
-  <link href="{{asset('backend/assets/img/favicon.png')}}" rel="shortcut icon" />
+  <link href="{{asset("$basicInfo->website_logo")}}" rel="shortcut icon" />
 
   <!--
     HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries
@@ -51,17 +59,17 @@
     <div class="mobile-sticky-body-overlay"></div>
 
     <div class="wrapper">
-      
+
       @include('admin.panel.sidebar')
 
       <div class="page-wrapper">
                   <!-- Header -->
 
-      @include('admin.panel.header')            
+      @include('admin.panel.header')
 
 
         <div class="content-wrapper">
-          <div class="content">						 
+          <div class="content">
 
       @yield('admin')
 
@@ -90,7 +98,6 @@
       </div>
     </div>
 
-    
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDCn8TFXGg17HAUcNpkwtxxyT9Io9B_NcM" defer></script>
 <script src="{{asset('backend/assets/plugins/jquery/jquery.min.js')}}"></script>
 <script src="{{asset('backend/assets/plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
@@ -112,6 +119,30 @@
 <script src="{{asset('backend/assets/js/map.js')}}"></script>
 <script src="{{asset('backend/assets/js/custom.js')}}"></script>
 <script src="{{asset('scripting/default.js')}}" defer></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 
-  </body>
+<script>
+ @if(Session::has('message'))
+ var type = "{{ Session::get('alert-type','info') }}"
+ switch(type){
+    case 'info':
+    toastr.info(" {{ Session::get('message') }} ");
+    break;
+
+    case 'success':
+    toastr.success(" {{ Session::get('message') }} ");
+    break;
+
+    case 'warning':
+    toastr.warning(" {{ Session::get('message') }} ");
+    break;
+
+    case 'error':
+    toastr.error(" {{ Session::get('message') }} ");
+    break;
+ }
+ @endif
+</script>
+
+</body>
 </html>

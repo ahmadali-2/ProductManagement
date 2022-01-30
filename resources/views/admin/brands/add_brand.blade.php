@@ -17,7 +17,7 @@
                         @csrf
                     <input id="field" class="form-control" type="file" name="brand_logo" onchange="readURL(this)">
                     <input id="field" class="form-control" type="text" name="brand_name" placeholder="Brand Name">
-                    
+
                     @error('brand_name')
                         <span id="error" class="form-control text-danger"> {{ $message }}</span>
                     @enderror

@@ -12,6 +12,11 @@ use App\Models\product;
 
 class BrandController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function show(){
         return view("admin.brands.add_brand");
     }
@@ -28,7 +33,7 @@ class BrandController extends Controller
             "brand_description" => "required:brands|min:50",
             'brand_logo' => 'required|image|mimes:jpg,png,jpeg,gif,svg,webp',
         ]);
-        
+
         $data = array();
         $data["user_id"] = Auth::id();
         $data["brand_logo"] = $this->makeImage($request);
@@ -36,7 +41,11 @@ class BrandController extends Controller
         $data["brand_description"] = $request->brand_description;
         $data["created_at"] = Carbon::now();
         DB::table("brands")->insert($data);
-        return redirect("dashboard/showAllBrands")->with("message","Brand created successfuly!");
+        $notification = array(
+            'message' => 'Brand created successfuly!',
+            'alert-type' => 'success'
+        );
+        return redirect("dashboard/showAllBrands")->with($notification);
     }
 
     public function edit($id){
@@ -50,7 +59,7 @@ class BrandController extends Controller
             "brand_name" => "required:brands|max:25",
             "brand_description" => "required:brands|min:50",
         ]);
-        
+
         $data = array();
         $data["user_id"] = Auth::id();
         if($request->brand_logo){
@@ -62,14 +71,18 @@ class BrandController extends Controller
         $data["brand_description"] = $request->brand_description;
         $data["updated_at"] = Carbon::now();
         DB::table("brands")->where('id',$id)->update($data);
-        return redirect("dashboard/showAllBrands")->with("message","Brand updated successfuly!");
+        $notification = array(
+            'message' => 'Brand updated successfuly!',
+            'alert-type' => 'success'
+        );
+        return redirect("dashboard/showAllBrands")->with($notification);
     }
 
     public function makeImage(Request $request){
         $image =  $request->file('brand_logo');
         $imageExtension = strtolower($image->getClientOriginalExtension());
         $imageName = hexdec(uniqid()).".".$imageExtension;
-        Image::make($image)->resize(450, 250)->save("Images/Brand/".$imageName);
+        Image::make($image)->save("Images/Brand/".$imageName);
         $filePath = "Images/Brand/".$imageName;
         return $filePath;
     }
@@ -88,6 +101,10 @@ class BrandController extends Controller
         }
         unlink($brand->brand_logo);
         $brand->delete();
-        return redirect("/dashboard/showAllBrands")->with("message","Brand along with all its products deleted!");
+        $notification = array(
+            'message' => 'Brand along with all its products deleted!',
+            'alert-type' => 'success'
+        );
+        return redirect("/dashboard/showAllBrands")->with($notification);
     }
 }

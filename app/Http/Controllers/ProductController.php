@@ -11,6 +11,11 @@ use Intervention\Image\ImageManagerStatic as Image;
 
 class ProductController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function show(){
         $categories = DB::table("categories")->latest()->get();
         $brands = DB::table("brands")->latest()->get();
@@ -67,12 +72,17 @@ class ProductController extends Controller
         $data["brand_id"] = $request->brand_id;
         $data["product_logo"] = $this->makeImage($request);
         $data["product_name"] = $request->product_name;
+        $data["product_video"] = $request->product_video;
         $data["product_description"] = $request->product_description;
         $data["product_price"] = $request->product_price;
         $data["product_stock"] = $request->product_stock;
         $data["created_at"] = Carbon::now();
         DB::table("products")->insert($data);
-        return redirect("/dashboard/showAllProducts")->with("message","Product created successfuly!");
+        $notification = array(
+            'message' => 'Product created successfuly!',
+            'alert-type' => 'success'
+        );
+        return redirect("/dashboard/showAllProducts")->with($notification);
     }
 
     public function edit($id){
@@ -94,26 +104,35 @@ class ProductController extends Controller
         }
 
         $data["product_name"] = $request->product_name;
+        $data["product_video"] = $request->product_video;
         $data["product_description"] = $request->product_description;
         $data["product_price"] = $request->product_price;
         $data["product_stock"] = $request->product_stock;
         $data["updated_at"] = Carbon::now();
         DB::table("products")->where('id',$id)->update($data);
-        return redirect("/dashboard/showAllProducts")->with("message","Product updated successfuly!");
+        $notification = array(
+            'message' => 'Product updated successfuly!',
+            'alert-type' => 'success'
+        );
+        return redirect("/dashboard/showAllProducts")->with($notification);
     }
 
     public function delete($id){
         $delete = Product::find($id);
         unlink($delete->product_logo);
         $delete->delete();
-        return redirect("/dashboard/showAllProducts")->with("message","Product deleted successfuly!");
+        $notification = array(
+            'message' => 'Product deleted successfuly!',
+            'alert-type' => 'success'
+        );
+        return redirect("/dashboard/showAllProducts")->with($notification);
     }
 
     public function makeImage(Request $request){
         $image =  $request->file('product_logo');
         $imageExtension = strtolower($image->getClientOriginalExtension());
         $imageName = hexdec(uniqid()).".".$imageExtension;
-        Image::make($image)->resize(450, 250)->save("Images/Product/".$imageName);
+        Image::make($image)->save("Images/Product/".$imageName);
         $filePath = "Images/Product/".$imageName;
         return $filePath;
     }

@@ -6,7 +6,7 @@
 
                     <!-- Icon -->
                     <div class="fadeIn first">
-                    <img src="{{asset("$brand->brand_logo")}}" id="icon" alt="User Icon" />
+                    <img src="{{asset("$brand->brand_logo")}}" id="icon" alt="User Icon" style="border-radius: 5px;"/>
                     @error('brand_logo')
                         <span id="error" class="form-control text-danger"> {{ $message }}</span>
                     @enderror
@@ -17,7 +17,7 @@
                         @csrf
                     <input id="field" class="form-control" type="file" name="brand_logo" onchange="readURL(this)">
                     <input id="field" class="form-control" type="text" name="brand_name" placeholder="Brand Name" value="{{$brand->brand_name}}">
-                    
+
                     @error('brand_name')
                         <span id="error" class="form-control text-danger"> {{ $message }}</span>
                     @enderror

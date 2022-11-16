@@ -3,7 +3,7 @@
             <!-- Aplication Brand -->
             <div class="app-brand">
               <a href="{{route('dashboard')}}">
-                <img src="{{asset("$basicInfo->website_logo")}}" height="40px" width="40px">
+                <img src="{{asset("$basicInfo->website_logo")}}" height="40px" width="40px" style="border-radius: 5px;">
                   <g fill="none" fill-rule="evenodd">
                     <path
                       class="logo-fill-blue"

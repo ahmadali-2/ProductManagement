@@ -25,7 +25,7 @@
         </div>
     </form>
 </div>
-<img id="heroImg" src="{{asset("$arrival->arrival_image")}}" height="250px" width="450px" alt="" class="img-fluid">
+<img id="heroImg" src="{{asset("$arrival->arrival_image")}}" height="250px" width="450px" alt="" class="img-fluid" style="border-radius: 5px;">
     <div class="card-header card-header-border-bottom">
         <h2>Arrival Info</h2>
     </div>

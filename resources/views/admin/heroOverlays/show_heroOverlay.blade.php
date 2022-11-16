@@ -25,7 +25,7 @@
         </div>
     </form>
 </div>
-<img id="heroImg" src="{{asset("$heroImage->hero_image")}}" height="500px" width="900px" alt="" class="img-fluid">
+<img id="heroImg" src="{{asset("$heroImage->hero_image")}}" height="500px" width="900px" alt="" class="img-fluid" style="border-radius: 5px;">
     <div class="card-header card-header-border-bottom">
         <h2>Hero Overlays</h2>
     </div>

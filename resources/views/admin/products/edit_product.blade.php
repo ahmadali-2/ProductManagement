@@ -4,7 +4,7 @@
 <div class="wrapper fadeInDown">
                 <div id="newBrandForm">
                     <div class="fadeIn first">
-                    <img src="{{asset("$product->product_logo")}}" id="icon" alt="Product Icon" />
+                    <img src="{{asset("$product->product_logo")}}" id="icon" alt="Product Icon" style="border-radius: 5px;"/>
                     </div>
 
                     <form id="model" method="POST" enctype="multipart/form-data" action="{{url('dashboard/showAllProducts/update/'.$product->id)}}">

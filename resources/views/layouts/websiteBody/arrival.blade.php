@@ -3,7 +3,7 @@
             <div class="box">
                <div class="row">
                   <div class="col-md-4 ml-auto">
-                     <img src="{{asset("$arrival->arrival_image")}}" alt="" class="img-fluid">
+                     <img src="{{asset("$arrival->arrival_image")}}" alt="" class="img-fluid" style="border-radius: 5px;">
                   </div>
                   <div class="col-md-8 ml-auto">
                      <div class="heading_container remove_line_bt">

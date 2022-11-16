@@ -6,7 +6,7 @@
 
                     <!-- Icon -->
                     <div class="fadeIn first">
-                    <img src="{{asset('Images/Brand/logoHere.png')}}" id="icon" alt="User Icon" />
+                    <img src="{{asset('Images/Brand/logoHere.png')}}" id="icon" alt="User Icon" style="border-radius: 5px;"/>
                     @error('brand_logo')
                         <span id="error" class="form-control text-danger"> {{ $message }}</span>
                     @enderror

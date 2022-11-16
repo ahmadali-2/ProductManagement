@@ -27,7 +27,7 @@
                 @foreach($categoryProducts as $product)
                     <tr>
                         <td><strong>{{$product->id}}</strong></td>
-                        <td><img src="{{asset("$product->product_logo")}}" width="100px" height="100px" alt="No Image"></td>
+                        <td><img src="{{asset("$product->product_logo")}}" width="100px" height="100px" alt="No Image" style="border-radius: 5px;"></td>
                         <td>{{$product->product_name}}</td>
                         <td><b>{{$product->product_stock}}</b> <i> Pieces</i></td>
                         <td><b>${{$product->product_price}}</b> <i> Per / Piece</i></td>

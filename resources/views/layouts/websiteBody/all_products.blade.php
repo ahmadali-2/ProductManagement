@@ -1,17 +1,22 @@
+<style>
+    .dropdown-cursor:hover{
+       cursor: pointer;
+    }
+</style>
 <!-- Website Scripting file -->
 <script src="{{asset('scripting/website.js')}}"></script>
 
 <section class="product_section layout_padding">
          <div class="container">
-            <div class="heading_container heading_center">
+            <div id="products_section" class="heading_container heading_center">
                <h2>
                   Our <span>products</span>
                </h2>
             </div>
             <div class="row">
-               <div class="col-sm-3" style="padding-left: 100px; padding-top: 10px; padding-bottom: 10px; background-color: #f7444e;">
+               <div class="col-sm-4" style=" padding-top: 10px; padding-bottom: 10px; background-color: #f7444e;">
 
-               <select id="optionCategory1" onchange="catOp()">
+               <select class="btn btn-dark dropdown-cursor" id="optionCategory1" onchange="catOp()">
                   <option value="-">All Categories</option>
                         @foreach($categories as $category)
                            <option value="{{$category->id}}">{{$category->category_name}}</option>
@@ -19,16 +24,16 @@
                </select>
 
                </div>
-               <div class="col-sm-3" style="padding-left: 100px; padding-top: 10px; padding-bottom: 10px; background-color: #f7444e;">
+               <div class="col-sm-4" style=" padding-top: 10px; padding-bottom: 10px; background-color: #f7444e;">
 
-               <select id="optionBrand1" onchange="braOp()">
+               <select class="btn btn-dark dropdown-cursor" id="optionBrand1" onchange="braOp()">
                   <option value="-">All Brands</option>
                         @foreach($brands as $brand)
                            <option value="{{$brand->id}}">{{$brand->brand_name}}</option>
                         @endforeach
                </select>
                </div>
-               <div class="col-sm-6" style="padding-left: 100px; padding-top: 10px; padding-bottom: 10px; background-color: #f7444e;">
+               <div class="col-sm-4" style="padding-top: 10px; padding-bottom: 10px; background-color: #f7444e;">
                   <button class="btn btn-danger" onclick="productFilter()" style="color: white; background-color: black;" >Filter Products</button>
                </div>
             </div>
@@ -45,7 +50,7 @@
                            </div>
                         </div> -->
                         <div class="img-box">
-                           <img src="{{asset("$product->product_logo")}}" alt="">
+                           <img src="{{asset("$product->product_logo")}}" alt="" style="border-radius: 5px;">
                         </div>
                         <div class="detail-box">
                            <h5>

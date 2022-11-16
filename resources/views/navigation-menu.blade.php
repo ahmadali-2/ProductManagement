@@ -23,7 +23,7 @@
                     <x-jet-nav-link href="{{ route('showAllCategories') }}" :active="request()->routeIs('dashboard')">
                         Categories
                     </x-jet-nav-link>
-                    
+
                     <x-jet-nav-link href="{{ route('showAllProducts') }}" :active="request()->routeIs('dashboard')" onclick="resetDrops()">
                         Products
                     </x-jet-nav-link>
@@ -88,7 +88,7 @@
                         <x-slot name="trigger">
                             @if (Laravel\Jetstream\Jetstream::managesProfilePhotos())
                                 <button class="flex text-sm border-2 border-transparent rounded-full focus:outline-none focus:border-gray-300 transition">
-                                    <img class="h-8 w-8 rounded-full object-cover" src="{{ Auth::user()->profile_photo_url }}" alt="{{ Auth::user()->name }}" />
+                                    <img class="h-8 w-8 rounded-full object-cover" src="{{ Auth::user()->profile_photo_url }}" alt="{{ Auth::user()->name }}" style="border-radius: 5px;" />
                                 </button>
                             @else
                                 <span class="inline-flex rounded-md">
@@ -161,7 +161,7 @@
             <div class="flex items-center px-4">
                 @if (Laravel\Jetstream\Jetstream::managesProfilePhotos())
                     <div class="shrink-0 mr-3">
-                        <img class="h-10 w-10 rounded-full object-cover" src="{{ Auth::user()->profile_photo_url }}" alt="{{ Auth::user()->name }}" />
+                        <img class="h-10 w-10 rounded-full object-cover" src="{{ Auth::user()->profile_photo_url }}" alt="{{ Auth::user()->name }}" style="border-radius: 5px;" />
                     </div>
                 @endif
 

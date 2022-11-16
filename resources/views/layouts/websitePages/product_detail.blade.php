@@ -17,10 +17,10 @@
     </section>
         <div class="container">
         	<div class="row">
-               <div class="col-xs-4 item-photo">
-                    <a href="{{$product->product_video}}" target="_blank"><img style="max-width:60%; padding: 35px; margin-top: 20px;" height="325px" width="650px" src="{{asset("$product->product_logo")}}" /></a>
+               <div class="col-sm-8 item-photo">
+                    <a href="{{$product->product_video}}" target="_blank"><img style="max-width:60%; padding: 35px; margin-top: 20px;" height="325px" width="650px" src="{{asset("$product->product_logo")}}" style="border-radius: 5px;"/></a>
                 </div>
-                <div class="col-xs-5" style="border:0px solid gray; max-width:40%; padding: 35px;">
+                <div class="col-sm-4" style="border:0px solid gray; max-width:40%; padding: 35px;">
                     <!-- Datos del vendedor y titulo del producto -->
                     <h3>{{$product->product_name}}</h3>
                     @if($product->product_video)
@@ -32,7 +32,7 @@
 
                     <!-- Precios -->
                     <h6 class="title-price"><small>Special Offer</small></h6>
-                    <h3 style="margin-top:0px;">Rs. {{$product->product_price}}</h3>
+                    <h3 style="margin-top:0px;">Rs. {{$product->product_price}} /-</h3>
 
                     <!-- Detalles especificos del producto -->
                     <!-- <div class="section">
@@ -76,7 +76,7 @@
                     </div>
                 </div>
 
-                <div class="col-xs-9">
+                <div class="col-sm-9">
                     <div style="width:100%;border-top:1px solid silver">
                         <p style="padding:15px;">
                                 {{$product->product_description}}

@@ -22,7 +22,7 @@
             @endphp
             <div class="col-lg-3" style="margin-right: 10px; margin-left: 20px;">
                     <div id="mainCard" class="card shadow-xl sm:rounded-lg" style="width: 18rem;">
-                    <img id="brandCardPic" src="{{asset("$category->category_logo")}}"/>
+                    <img id="brandCardPic" src="{{asset("$category->category_logo")}}" style="border-radius: 5px;"/>
                     <div id="brandCard" class="card-body">
                         <p id="brandCardHea" class="card-title">{{$category->category_name}}</p>
                         <p id="brandCardDes" class="card-text">{{$customDesc}}</p>

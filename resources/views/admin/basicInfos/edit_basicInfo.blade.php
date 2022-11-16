@@ -6,7 +6,7 @@
 
                     <!-- Icon -->
                     <div class="fadeIn first">
-                    <img src="{{asset("$basicInfo->website_logo")}}" id="icon" alt="Website Logo" />
+                    <img src="{{asset("$basicInfo->website_logo")}}" id="icon" alt="Website Logo" style="border-radius: 5px;" />
                     </div>
 
                     <!-- Login Form -->

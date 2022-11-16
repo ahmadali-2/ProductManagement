@@ -18,7 +18,7 @@
                            </div>
                         </div> -->
                         <div class="img-box">
-                           <img src="{{asset("$product->product_logo")}}" alt="">
+                           <img src="{{asset("$product->product_logo")}}" alt="" style="border-radius: 5px;">
                         </div>
                         <div class="detail-box">
                            <h5>

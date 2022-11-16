@@ -3,7 +3,7 @@
 <div class="wrapper fadeInDown">
                 <div id="newBrandForm">
                     <div class="fadeIn first">
-                    <img src="{{asset('Images/Product/logoHere.png')}}" id="icon" alt="Product Icon" />
+                    <img src="{{asset('Images/Product/logoHere.png')}}" id="icon" alt="Product Icon" style="border-radius: 5px;"/>
                     </div>
 
                     <form id="model" method="POST" action="{{route('addProduct')}}" enctype="multipart/form-data">

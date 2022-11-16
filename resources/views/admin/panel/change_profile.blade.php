@@ -4,7 +4,7 @@
 <h1>Change Profile</h1>
 <form class="form-pill" method="POST" action="{{route('changeProfile')}}" enctype="multipart/form-data">
     @csrf
-    <img style="margin-top: 10px;" id="profileImage" height="150px" width="150px" src="{{asset("$user->profile_photo_path")}}" id="icon" alt="Product Icon" />
+    <img style="margin-top: 10px; border-radius: 5px;" id="profileImage" height="150px" width="150px" src="{{asset("$user->profile_photo_path")}}" id="icon" alt="Product Icon" />
     <div class="form-group" style="margin-top: 10px;">
         <input type="file" name="profile_photo_path" id="imgupload" style="display:none" onchange="readProfileURL(this)"/>
         <a id="OpenImgUpload" class="btn btn-info" style="align-content: center; color: white;">Change</a>

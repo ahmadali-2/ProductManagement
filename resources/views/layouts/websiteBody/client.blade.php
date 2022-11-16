@@ -18,7 +18,7 @@
                         <div class="img_container">
                            <div class="img-box">
                               <div class="img_box-inner">
-                                 <img src="{{asset("$testimonial->customer_image")}}" alt="">
+                                 <img src="{{asset("$testimonial->customer_image")}}" alt="" style="border-radius: 5px;">
                               </div>
                            </div>
                         </div>

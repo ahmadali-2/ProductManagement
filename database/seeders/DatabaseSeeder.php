@@ -21,7 +21,7 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         BasicInfo::create([
-            'website_logo' => '/Images/BasicInfo/website_logo.png',
+            'website_logo' => 'Images/BasicInfo/website_logo.png',
             'website_title' => 'Sample Website',
             'address' => 'Sample address will come here',
             'telephone' => '+92 332 3300 244',
@@ -29,7 +29,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         HeroImage::create([
-            'hero_image' => '/Images/Hero/basic_hero.jpg',
+            'hero_image' => 'Images/Hero/basic_hero.jpg',
         ]);
 
         HeroOverlay::create([
@@ -39,7 +39,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         Arrival::create([
-            'arrival_image' => '/Images/Arrival/basic_arrival.jpg',
+            'arrival_image' => 'Images/Arrival/basic_arrival.jpg',
             'arrival_heading' => 'Here is the basic arrival heading',
             'arrival_description' => 'Here is the arrival description sample',
         ]);

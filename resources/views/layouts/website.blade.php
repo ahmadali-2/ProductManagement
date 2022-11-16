@@ -20,6 +20,8 @@
       <link href="{{asset('frontend/WebArtifacts/css/style.css')}}" rel="stylesheet" />
       <!-- responsive style -->
       <link href="{{asset('frontend/WebArtifacts/css/responsive.css')}}" rel="stylesheet" />
+
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
    </head>
    <body>
 

@@ -17,5 +17,9 @@
 </body>
 
 @include('layouts.websiteBody.all_products')
-
+<script>
+    $(document).ready(function(){
+        $("html, body").animate({ scrollTop: $("#products_section").offset().top }, "1500");
+    });
+ </script>
 @endsection('home')

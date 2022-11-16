@@ -79,12 +79,12 @@
                   <footer class="footer mt-auto">
             <div class="copyright bg-white">
               <p>
-                &copy; <span id="copy-year">2019</span> Copyright Sleek Dashboard Bootstrap Template by
+                &copy; <span id="copy-year">2019</span> Copyright admin dashboard by
                 <a
                   class="text-primary"
-                  href="http://www.iamabdus.com/"
+                  href="https://www.facebook.com/AuroraApps.pk"
                   target="_blank"
-                  >Abdus</a
+                  >AuroraApps</a
                 >.
               </p>
             </div>

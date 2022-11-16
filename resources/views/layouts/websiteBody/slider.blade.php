@@ -1,6 +1,6 @@
 <section class="slider_section ">
             <div class="slider_bg_box">
-            <img src="{{asset("$hero->hero_image")}}" alt="">
+            <img src="{{asset("$hero->hero_image")}}" alt="" style="border-radius: 5px;">
             </div>
             @php
                $check = true;

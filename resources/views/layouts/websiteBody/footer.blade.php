@@ -4,7 +4,7 @@
                <div class="col-md-4">
                    <div class="full">
                       <div class="logo_footer">
-                        <a href="{{route('home.page')}}"><img width="100" height="100" src="{{asset("$basicInfo->website_logo")}}" alt="Website Logo" /></a>
+                        <a href="{{route('home.page')}}"><img width="100" height="100" src="{{asset("$basicInfo->website_logo")}}" alt="Website Logo" style="border-radius:5px;" /></a>
                       </div>
                       <div class="information_f">
                         <p><strong>ADDRESS: </strong>{{$basicInfo->address}}</p>

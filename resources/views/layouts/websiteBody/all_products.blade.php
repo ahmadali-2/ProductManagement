@@ -40,8 +40,9 @@
             <div class="row">
                @foreach($products as $product)
                   <div class="col-sm-6 col-md-4 col-lg-4">
-                     <a href="{{url('home/product/detail/'.$product->id)}}">
+
                         <div class="box" style="background-color: #fcfcfc;">
+                            <a href="{{url('home/product/detail/'.$product->id)}}">
                         <!-- <div class="option_container">
                            <div class="options">
                               <a href="" class="option1">
@@ -56,12 +57,17 @@
                            <h5>
                               {{$product->product_name}}
                            </h5>
-                           <h6>
+                           {{-- <h6>
                               Rs. {{$product->product_price}}
-                           </h6>
+                           </h6> --}}
                         </div>
+                        </a>
+                        <div style="text-align: center;">
+                            <h6>
+                               <b>Rs. {{$product->product_price}} /-</b>
+                            </h6>
+                         </div>
                      </div>
-                     </a>
                   </div>
                @endforeach
             </div>
